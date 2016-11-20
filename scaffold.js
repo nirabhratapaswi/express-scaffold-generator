@@ -15,11 +15,11 @@ routeFolder.push(path.join(dir, "..", "routes", "login"));
 viewFile.push(path.join(dir, "..", "views", "login", "index.html"));
 viewFile.push(path.join(dir, "..", "views", "login", "index2.html"));
 viewFile.push(path.join(dir, "..", "views", "login", "index3.html"));
-htmlViewFile.push(path.join(dir, "..", "formGenerators", "views", "trial.html"));
-htmlViewFile.push(path.join(dir, "..", "formGenerators", "views", "trial2.html"));
-htmlViewFile.push(path.join(dir, "..", "formGenerators", "views", "trial3.html"));
+htmlViewFile.push(path.join(dir, "formGenerators", "views", "trial.html"));
+htmlViewFile.push(path.join(dir, "formGenerators", "views", "trial2.html"));
+htmlViewFile.push(path.join(dir, "formGenerators", "views", "trial3.html"));
 routeFile.push(path.join(dir, "..", "routes", "login", "index.js"));
-htmlRouteFile.push(path.join(dir, "..", "formGenerators", "routes", "index.js"));
+htmlRouteFile.push(path.join(dir, "formGenerators", "routes", "index.js"));
 
 makeFolder(viewFolder, 0, viewFile, htmlViewFile, function(success, index) {
 	if (success) {

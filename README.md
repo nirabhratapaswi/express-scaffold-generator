@@ -18,6 +18,12 @@ Meaning suppose you have a express app named "myWebsite", then just clone this r
 
 ## Deployment
 
+Go to the *express-scaffold-generator* folder - change directory
+
+```
+$ cd express-scaffold-generator
+```
+
 In the terminal type
 
 ```
