@@ -7,6 +7,13 @@ router.get('/', function(req, res, next) {
   res.render('login/index');
 });
 
+router.post('/', function(req, res, next) {
+	console.log("Post made!!");
+	console.log(req.body.username);
+	console.log(req.body.pwd);
+	res.end("Successful submission!");
+});
+
 router.get('/index2', function(req, res, next) {
   res.render('login/index2');
 });

@@ -31,6 +31,7 @@ $ node scaffold.js
 ```
 
 Done, you are good to go!
+Just add the routes to your app.js file to use the routes!!
 
 ## Authors
 

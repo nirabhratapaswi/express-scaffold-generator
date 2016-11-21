@@ -1,0 +1,18 @@
+{
+	"viewFiles": [
+		"index.ejs",
+		"index2.ejs",
+		"index3.ejs"	
+	],
+	"htmlViewFiles": [
+		"index.html",
+		"index2.html",
+		"index3.html"
+	],
+	"routeFiles": [
+		"index.js"	
+	],
+	"htmlRouteFiles": [
+		"index.js"
+	]
+}
