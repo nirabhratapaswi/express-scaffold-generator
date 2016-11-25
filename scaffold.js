@@ -7,6 +7,9 @@ var fs = require('fs'),
 	viewFile = [],
 	routeFolder = [],
 	routeFile = [],
+	modelFolder = [],
+	modelFile = [],
+	modelReadFile = [],
 	files = require('./formGenerators/files.json'),
 	constructor = require('./constructor');
 
@@ -30,10 +33,22 @@ for (file in files.htmlRouteFiles) {
 	console.log("File name: " + files.htmlRouteFiles[file]);
 }
 
+for (file in files.modelFiles) {
+	modelFile.push(path.join(dir, "..", "models", "login", files.modelFiles[file]));
+	console.log("File name: " + files.modelFiles[file]);
+}
+
+for (file in files.modelReadFiles) {
+	modelReadFile.push(path.join(dir, "formGenerators", "models", "login", files.modelReadFiles[file]));
+	console.log("File name: " + files.modelReadFiles[file]);
+}
+
 viewFolder.push(path.join(dir, "..", "views"));
 viewFolder.push(path.join(dir, "..", "views", "login"));
 routeFolder.push(path.join(dir, "..", "routes"));
 routeFolder.push(path.join(dir, "..", "routes", "login"));
+modelFolder.push(path.join(dir, "..", "models"));
+modelFolder.push(path.join(dir, "..", "models", "login"));
 
 constructor.makeFolder(viewFolder, 0, viewFile, htmlViewFile, function(success, index) {
 	if (success) {
@@ -56,6 +71,21 @@ constructor.makeFolder(routeFolder, 0, routeFile, htmlRouteFile, function(succes
 			for (routes in routeFile) {
 				console.log("File name: " + routeFile[routes]);
 				constructor.makeFile(routeFile[routes], htmlRouteFile[routes], function(success) {
+					if (success) {
+						console.log("Successfully created files!!");
+					}
+				});
+			}
+		}
+	}
+});
+
+constructor.makeFolder(modelFolder, 0, modelFile, modelReadFile, function(success, index) {
+	if (success) {
+		if (index >= modelFolder.length) {
+			for (models in modelFile) {
+				console.log("File name: " + modelFile[models]);
+				constructor.makeFile(modelFile[models], modelReadFile[models], function(success) {
 					if (success) {
 						console.log("Successfully created files!!");
 					}

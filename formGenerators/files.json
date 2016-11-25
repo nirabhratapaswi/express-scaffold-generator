@@ -14,5 +14,13 @@
 	],
 	"htmlRouteFiles": [
 		"index.js"
+	],
+	"modelFiles": [
+		"login.js",
+		"model.js"
+	],
+	"modelReadFiles": [
+		"login.js",
+		"model.js"
 	]
 }

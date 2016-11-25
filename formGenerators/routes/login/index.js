@@ -1,7 +1,7 @@
 var express = require('express'),
 	router = express.Router(),
 	path = require('path'),
-	login = require("/../../models/login/login");
+	login = require("../../models/login/login");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,12 +9,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	var user {
+	var user = {
 		username: req.body.username,
 		password: req.body.pwd
 	}
-	login.saveUser(user);
-	res.end("Successful submission!");
+	//login.saveUser(user);
+	login.validateUser(user, function(username, valid) {
+		if(valid) {
+			res.end("Valid Password");
+		} else {
+			res.end("Invalid Password!!");
+		}
+	});
+	//res.end("Successful submission!");
 });
 
 router.get('/index2', function(req, res, next) {

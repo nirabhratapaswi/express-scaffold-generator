@@ -38,7 +38,7 @@ function saveUser(user) {
 	});
 
 	newUser.save(function(error, user) {
-		if (error)
+		if(error) 
 			return console.error(error)
 
 		console.log("User saved successfully: " + user.username);
@@ -49,22 +49,16 @@ function validateUser(userCheck, callback) {
 	Login.findOne({
 		username: userCheck.username
 	}, function(error, user) {
-		if (error) {
+		if(error)
 			console.error(error);
-			callback(null, false);
-		}
 
-		if (user) {
-			user.validatePassword(userCheck.password, function(error, valid) {
-				if (error)
-					console.error(error);
+		user.validatePassword(user.username, function(error, valid) {
+			if(error)
+				console.error(error);
 
-				console.log(user.username + ", entered password is: " + valid);
-				callback(user.username, valid);
-			});
-		} else {
-			callback(null, false);
-		}
+			console.log(user.username + ", entered password is: " + valid);
+			callback(user.username, valid);
+		});
 	});
 }
 
