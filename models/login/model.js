@@ -41,7 +41,7 @@ loginSchema.methods.validatePassword = function(password, callback) {
 	bcrypt.compare(password, this.password, function(error, valid) {
 		if(error)
 			return callback(error);
-
+		
 		callback(null, valid);
 	});
 }

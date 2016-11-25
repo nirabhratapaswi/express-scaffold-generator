@@ -8,12 +8,20 @@ router.get('/', function(req, res, next) {
 	res.render('login/index');
 });
 
+router.get('/showall', function(req, res, next) {
+	login.showall(function(users, check) {
+		console.log("Showall callback value: " + check);
+		res.render('login/showall', { users: users });
+		//res.end("Showall page!!");
+	})
+});
+
 router.post('/', function(req, res, next) {
 	var user = {
 		username: req.body.username,
 		password: req.body.pwd
 	}
-	//login.saveUser(user);
+
 	login.validateUser(user, function(username, valid) {
 		if(valid) {
 			res.end("Valid Password");
@@ -21,15 +29,20 @@ router.post('/', function(req, res, next) {
 			res.end("Invalid Password!!");
 		}
 	});
-	//res.end("Successful submission!");
 });
 
-router.get('/index2', function(req, res, next) {
-	res.render('login/index2');
+router.get('/new', function(req, res, next) {
+	res.render('login/new');
 });
 
-router.get('/index3', function(req, res, next) {
-	res.render('login/index3');
+router.post('/new', function(req, res, next) {
+	var user = {
+		username: req.body.username,
+		password: req.body.pwd
+	}
+	
+	login.saveUser(user);
+	res.end("User createdn successfully!");
 });
 
 module.exports = router;
