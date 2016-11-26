@@ -1,23 +1,19 @@
 {
 	"viewFiles": [
 		"index.ejs",
-		"index2.ejs",
 		"new.ejs",
 		"showall.ejs"
 	],
 	"htmlViewFiles": [
 		"index.html",
-		"index2.html",
 		"new.html",
 		"showall.html"
 	],
 	"routeFiles": [
-		"index.js",
-		"new.js"
+		"index.js"
 	],
 	"htmlRouteFiles": [
-		"index.js",
-		"new.js"
+		"index.js"
 	],
 	"modelFiles": [
 		"login.js",
@@ -26,5 +22,11 @@
 	"modelReadFiles": [
 		"login.js",
 		"model.js"
+	],
+	"javascriptFiles": [
+		"showall.js"
+	],
+	"javascriptReadFiles": [
+		"showall.js"
 	]
 }

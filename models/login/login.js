@@ -9,28 +9,6 @@ mongoose.connect(conn, function(error) {
 	console.log('Successfully connected to MongoDB');
 });
 
-/*Login.findOne({
-	username: 'user1'
-}, function(error, user) {
-	if (error)
-		return console.error(error);
-
-	user.validatePassword('user1', function(error, valid) {
-		if (error)
-			console.error(error);
-
-		console.log("user1 : " + valid);
-	});
-
-	user.validatePassword('user2', function(error, valid) {
-		if (error)
-			console.error(error);
-
-		console.log("user2 : " + valid);
-	});
-
-});*/
-
 function saveUser(user) {
 	var newUser = new Login({
 		username: user.username,
@@ -68,7 +46,23 @@ function validateUser(userCheck, callback) {
 	});
 }
 
+function showall(callback) {
+	Login.find(function(error, users) {
+		if (error) {
+			console.error(error);
+			callback(null, false)
+		}
+		if (users) {
+			for (user in users) {
+				console.log(users[user].username + " has been read from the database!!");
+			}
+			callback(users, true);
+		}
+	});
+}
+
 module.exports = {
 	saveUser: saveUser,
-	validateUser: validateUser
+	validateUser: validateUser,
+	showall: showall
 }
