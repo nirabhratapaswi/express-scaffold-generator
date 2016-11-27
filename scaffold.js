@@ -45,7 +45,7 @@ for (file in files.javascriptFiles) {
 }
 
 for (file in files.javascriptFiles) {
-	javascriptFile.push(path.join(dir, "..", "public", "javascript", files.javascriptFiles[file]));
+	javascriptFile.push(path.join(dir, "..", "public", "javascripts", files.javascriptFiles[file]));
 }
 
 viewFolder.push(path.join(dir, "..", "views"));
