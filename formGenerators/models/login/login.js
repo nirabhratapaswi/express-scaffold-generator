@@ -61,8 +61,28 @@ function showall(callback) {
 	});
 }
 
+function deleteUser(userCheck, callback) {
+	validateUser(userCheck, function(username, valid) {
+		if(valid) {
+			Login.remove({
+				username: username
+			}, function(error) {
+				if(error) {
+					console.error(error);
+					callback(username, false);
+				} else {
+					callback(username, true);
+				}
+			});
+		} else {
+			callback(null, false);
+		}
+	});
+}
+
 module.exports = {
 	saveUser: saveUser,
 	validateUser: validateUser,
-	showall: showall
+	showall: showall,
+	deleteUser: deleteUser
 }

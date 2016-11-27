@@ -11,7 +11,9 @@ router.get('/', function(req, res, next) {
 router.get('/showall', function(req, res, next) {
 	login.showall(function(users, check) {
 		console.log("Showall callback value: " + check);
-		res.render('login/showall', { users: users });
+		res.render('login/showall', {
+			users: users
+		});
 		//res.end("Showall page!!");
 	})
 });
@@ -23,7 +25,7 @@ router.post('/', function(req, res, next) {
 	}
 
 	login.validateUser(user, function(username, valid) {
-		if(valid) {
+		if (valid) {
 			res.end("Valid Password");
 		} else {
 			res.end("Invalid Password!!");
@@ -40,9 +42,35 @@ router.post('/new', function(req, res, next) {
 		username: req.body.username,
 		password: req.body.pwd
 	}
-	
+
 	login.saveUser(user);
 	res.end("User createdn successfully!");
+});
+
+router.post('/delete', function(req, res, next) {
+	console.log("-------------Delete method called!!--------------");
+	var user = {
+		username: req.body.username,
+		password: req.body.password
+	}
+	console.log("Username: " + user.username + ", Password: " + user.password);
+	login.deleteUser(user, function(username, successfulDeletion) {
+		if (successfulDeletion) {
+			var respData = {
+				confirm: true,
+				deletion: "successful",
+				username: username
+			};
+			res.end(JSON.stringify(respData));
+		} else {
+			var respData = {
+				confirm: false,
+				deletion: "unsuccessful",
+				username: username
+			};
+			res.end(JSON.stringify(respData));
+		}
+	});
 });
 
 module.exports = router;

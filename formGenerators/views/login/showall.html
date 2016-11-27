@@ -7,17 +7,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="showall.js"></script>
+  <script type="text/javascript" src="../javascripts/showall.js"></script>
 </head>
 <body>
 
 <div class="container">
   <h2>--Show Users Page--</h2>
-  <% for(user in users) { %>
-  <p><span><%= user %> : <%= users[user].username %></span><span><a href="<%= users[user].username %>"></a></span></p>
-  <% } %>
+  <div id="list">
+    <% for(user in users) { %>
+      <!--<p><span><%= user %> : <%= users[user].username %></span><span><a href="<%= users[user].username %>"></a></span></p>-->
+      <p><span><%= parseInt(user)+1 %> : <%= users[user].username %></span><span><button id="<%= users[user].username %>" onclick="clickMe()">Delete</button></span></p>
+    <% } %>
+  </div>
   <p id="test"></p>
 </div>
 </body>
 </html>
-
