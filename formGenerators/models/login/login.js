@@ -63,6 +63,7 @@ function showall(callback) {
 
 function deleteUser(userCheck, callback) {
 	validateUser(userCheck, function(username, valid) {
+		console.log("From validate user, returned username: " + username + ", valid parameter: " + valid);
 		if(valid) {
 			Login.remove({
 				username: username
@@ -75,7 +76,7 @@ function deleteUser(userCheck, callback) {
 				}
 			});
 		} else {
-			callback(null, false);
+			callback(username, false);
 		}
 	});
 }

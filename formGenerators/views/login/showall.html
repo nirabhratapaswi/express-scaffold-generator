@@ -16,7 +16,7 @@
   <div id="list">
     <% for(user in users) { %>
       <!--<p><span><%= user %> : <%= users[user].username %></span><span><a href="<%= users[user].username %>"></a></span></p>-->
-      <p><span><%= parseInt(user)+1 %> : <%= users[user].username %></span><span><button id="<%= users[user].username %>" onclick="clickMe()">Delete</button></span></p>
+      <p><span><%= parseInt(user)+1 %> : <%= users[user].username %> </span><span> <button id="<%= users[user].username %>">Delete</button></span></p>
     <% } %>
   </div>
   <p id="test"></p>

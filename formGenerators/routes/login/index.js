@@ -44,7 +44,7 @@ router.post('/new', function(req, res, next) {
 	}
 
 	login.saveUser(user);
-	res.end("User createdn successfully!");
+	res.end("User created successfully!");
 });
 
 router.post('/delete', function(req, res, next) {
