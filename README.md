@@ -33,6 +33,16 @@ $ node scaffold.js
 Done, you are good to go!
 Just add the routes to your app.js file to use the routes!!
 
+For adding the index.js route to your app.js file(or server.js file)
+
+Open app.js file and add the following lines: 
+```
+var login = require('./routes/login');
+app.use('/login', login);
+```
+
+app variable being the server variable which is running the app and all routes
+
 ## Authors
 
 * **Nirabhra Tapaswi** - *made this repository*
