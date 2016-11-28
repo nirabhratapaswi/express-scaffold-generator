@@ -11,6 +11,18 @@ The usage of this library is super easy. Follow the Installation instructions an
 
 You should have node js and express framework on your system preinstalled.
 
+Make an express app. Like-
+
+In terminal
+```
+$ express -e myApp
+```
+
+Change Directory to myApp
+```
+$ cd myApp
+```
+
 ### Installing
 
 Clone this repository to the folder where you are building your express app.
