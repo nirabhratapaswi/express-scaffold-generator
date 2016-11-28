@@ -26,7 +26,12 @@ $ cd myApp
 ### Installing
 
 Clone this repository to the folder where you are building your express app.
-Meaning suppose you have a express app named "myWebsite", then just clone this repository within the "myWebsite" folder
+Meaning suppose you have a express app named "myApp", then just clone this repository within the "myApp" folder
+
+In terminal
+```
+$ git clone https://github.com/nirabhratapaswi/express-scaffold-generator.git
+```
 
 ## Deployment
 
